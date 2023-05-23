@@ -1,0 +1,22 @@
+---
+-	name: Create a file on host2
+  hosts: host2
+
+  tasks:
+  -	name: Create a file
+    file:
+      path: /home/hliang/fun.txt
+      state: touch
+
+  -	name: Add content to the file
+    lineinfile:
+      path: /home/hliang/fun.txt
+      line: “ This is my first content for playbook. A lot of fun!”
+
+Another option:
+
+  -	name: create and add content
+    lineinfile:
+      path: /home/hliang/fun.txt
+      line: “This is my first content for playbook. A lot of fun!”
+      create: yes
